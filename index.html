@@ -26,7 +26,7 @@
 	<hr />
 
 	<h2>How does it work?</h2>
-	<p>At each step, a random number between 1 - 4 (inclusive) is chosen. Each number represents a direction: left, right, bottom, or top. We then <q>walk</q> towards the direction and draw the line. Each random instance is a JS "Object" and we keep track of these objects. For each tick of the timer, there are R steps executed, where R is the number of current instances. Random instances start anywhere in the grid.</p>
+	<p>At each step, a random number <i>i</i> such that, 1 &leq; <i>i</i> &leq; 4 is chosen. Each number represents a direction: left, right, bottom, or top. We then <q>walk</q> towards the direction and draw the line. Each random instance is a JS "Object" and we keep track of these objects. For each tick of the timer, there are <i>R</i> steps executed, where <i>R</i> is the number of current instances. Random instances start anywhere in the canvas.</p>
 
 	<h2>Performance?</h2>
 	<p>Given that the draw event happens every <i>t</i> milliseconds, at every iteration, the complexity is <b>O(R*d)</b>. <b>O(d)</b> is the time it takes to move and draw from the predecessor point <i>p<sub>i</sub></i> to the new point <i>p<sub>i+1</sub></i> of a given instance on the canvas. <i>R</i> is the number of instances we are drawing. Naturally, the longer the step between <i>p<sub>i</sub></i> and <i>p<sub>i+1</sub></i> , the more the performance is hindered, because more has to be drawn.</p>
