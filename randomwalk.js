@@ -40,7 +40,7 @@ $(document).ready(function() {
 			context.stroke();
 		}
 		
-		numSteps += instance.length;
+		numSteps += instances.length;
       	$('#steps').html(numSteps);
 	}
 
