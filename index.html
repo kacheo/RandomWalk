@@ -8,6 +8,12 @@
 
 <body>
 	<h1>Do the random walk!</h1>
+	
+	<h2>What is this?</h2>
+	<p>This is a simple random walk simulator using HTML5 + JS. I made this to demonstrate the beauty of randomness.</p>
+
+	<hr />
+
 	<p>Steps: <span id="steps">0</span> Instances: <span id="instances">0</span></p>
 	<br />
 	<canvas id="mainCanvas" width="1000" height="600" style="border:1px solid #000000;"></canvas>
@@ -16,4 +22,19 @@
 	<button id="clearAllBtn">Clear all</button>
 	<button id="increaseStepLengthBtn">+ Step Length</button>
 	<button id="decreaseStepLengthBtn">- Step Length</button>
+
+	<hr />
+
+	<h2>How does it work?</h2>
+	<p>At each step, a random number between 1 - 4 (inclusive) is chosen. Each number represents a direction: left, right, bottom, or top. We then <q>walk</q> towards the direction and draw the line. Each random instance is a JS "Object" and we keep track of these objects. For each tick of the timer, there are R steps executed, where R is the number of current instances. Random instances start anywhere in the grid.</p>
+
+	<h2>Performance?</h2>
+	<p>Given that the draw event happens every <i>t</i> milliseconds, at every iteration, the complexity is <b>O(R*d)</b>. <b>O(d)</b> is the time it takes to move and draw from the predecessor point <i>p<sub>i</sub></i> to the new point <i>p<sub>i+1</sub></i> of a given instance on the canvas. <i>R</i> is the number of instances we are drawing. Naturally, the longer the step between <i>p<sub>i</sub></i> and <i>p<sub>i+1</sub></i> , the more the performance is hindered, because more has to be drawn.</p>
+
+	<h2>Why is there no CSS in this page?</h2>
+	<p>O_O That's not the point</p>
+
+	<h3>The code is on Github:</h3>
+	<p><a href="http://www.github.com/Lonkal/RandomWalk">View the source on GitHub</a></p>
+
 </body>
