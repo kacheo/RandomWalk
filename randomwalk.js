@@ -39,15 +39,15 @@ $(document).ready(function() {
 			moveLineForNextStep(inst);
 			context.stroke();
 		}
-
+		
+		numSteps += instance.length;
       	$('#steps').html(numSteps);
 	}
 
 	function moveLineForNextStep(instance) {
 		var direction = Math.floor(Math.random() * (5 - 1)) + 1;
       	context.strokeStyle = instance.color;
-		numSteps++;
-		
+	
 		// Move
 		switch(direction) {
 			case 1:
