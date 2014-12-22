@@ -20,6 +20,7 @@ $(document).ready(function() {
 	var intervalIds = [];
 	
 	var steps = 0;
+	var instances = 0;
 
 	function drawNewWalkPoint(instance) {
 		// Pick left right bottom or top
@@ -61,10 +62,14 @@ $(document).ready(function() {
 
 
 	$('#spawnBtn').click(function() {
-		var randomX = Math.floor(Math.random() * (751 - 50)) + 50;
-		var randomY = Math.floor(Math.random() * (551 - 50)) + 50;
+		var randomX = Math.floor(Math.random() * (canvas.width - 1)) + 1;
+		var randomY = Math.floor(Math.random() * (canvas.height - 1)) + 1;
 
 		var rWI = new randomWalkInstance(randomX,randomY);
+		instances++;
+
+		$('#instances').html(instances);
+
 		intervalIds.push(window.setInterval(function() {drawNewWalkPoint(rWI)}, 0));
 	});
 
