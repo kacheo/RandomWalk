@@ -3,14 +3,15 @@
 <head>
 	<title>Random Walk Simulator</title>
 	<script src="jquery-2.1.1.js"></script>
-	<script src="main.js"></script>
+	<script src="randomwalk.js"></script>
 </head>
 
 <body>
-	<h1>Do the random walk</h1>
-
-	<canvas id="mainCanvas" width="800" height="600" style="border:1px solid #000000;"></canvas>
-
+	<h1>Do the random walk!</h1>
+	<p>Steps: <span id="steps">0</span></p>
+	<br />
+	<canvas id="mainCanvas" width="1000" height="600" style="border:1px solid #000000;"></canvas>
+	<br />
 	<button id="spawnBtn">Spawn a random walk instance</button>
 	<button id="clearAllBtn">Clear all</button>
 </body>
