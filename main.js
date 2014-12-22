@@ -19,17 +19,15 @@ $(document).ready(function() {
 
 	var intervalIds = [];
 	
-	var startX = mainCanvas.width/2;
-	var startY = mainCanvas.height/2;
-	
-	var rWI = new randomWalkInstance(startX,startY);
-	
-	intervalIds.push(window.setInterval(function() {drawNewWalkPoint(rWI)}, 1));
+	var steps = 0;
 
 	function drawNewWalkPoint(instance) {
 		// Pick left right bottom or top
         var direction = Math.floor(Math.random() * (5 - 1)) + 1;
       	context.strokeStyle = instance.color;
+      	steps++;
+
+      	$('#steps').html(steps);
 
 		// Move
 		switch(direction) {
@@ -67,7 +65,7 @@ $(document).ready(function() {
 		var randomY = Math.floor(Math.random() * (551 - 50)) + 50;
 
 		var rWI = new randomWalkInstance(randomX,randomY);
-		intervalIds.push(window.setInterval(function() {drawNewWalkPoint(rWI)}, 1));
+		intervalIds.push(window.setInterval(function() {drawNewWalkPoint(rWI)}, 0));
 	});
 
 	$('#clearAllBtn').click(function() {
