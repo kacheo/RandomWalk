@@ -83,7 +83,7 @@ $(document).ready(function() {
 	});
 
 	$('#clearAllBtn').click(function() {
-		instances.clear();
+		instances = [];
 
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	});
