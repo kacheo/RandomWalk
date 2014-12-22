@@ -17,6 +17,7 @@ $(document).ready(function() {
 	var canvas = document.getElementById("mainCanvas");
 	var context = canvas.getContext('2d');
 
+	var stepLength_PX = 1;
 	var intervalIds = [];
 	
 	var steps = 0;
@@ -35,25 +36,25 @@ $(document).ready(function() {
 			case 1:
 		      context.beginPath();
 		      context.moveTo(instance.x, instance.y);
-		      context.lineTo(instance.x-=1, instance.y);
+		      context.lineTo(instance.x-=stepLength_PX, instance.y);
 		      context.stroke();
 		      break;
   			case 2:
 		      context.beginPath();
 		      context.moveTo(instance.x, instance.y);
-		      context.lineTo(instance.x+=1, instance.y);
+		      context.lineTo(instance.x+=stepLength_PX, instance.y);
 		      context.stroke();
 		      break;
 		    case 3:
 		      context.beginPath();
 		      context.moveTo(instance.x, instance.y);
-		      context.lineTo(instance.x, instance.y-=1);
+		      context.lineTo(instance.x, instance.y-=stepLength_PX);
 		      context.stroke();
 		      break;
 			case 4:
 			  context.beginPath();
 		      context.moveTo(instance.x, instance.y);
-		      context.lineTo(instance.x, instance.y+=1);
+		      context.lineTo(instance.x, instance.y+=stepLength_PX);
 		      context.stroke();
 		      break;
 			default:
@@ -79,5 +80,21 @@ $(document).ready(function() {
 		}
 
 		context.clearRect(0, 0, canvas.width, canvas.height);
+	});
+
+	$('#increaseStepLengthBtn').click(function() {
+		if (stepLength_PX >= 10) {
+			return;
+		}
+
+		stepLength_PX++;
+	});
+
+	$('#decreaseStepLengthBtn').click(function() {
+		if (stepLength_PX <= 1) {
+			return;
+		}
+
+		stepLength_PX--;
 	});
 });
